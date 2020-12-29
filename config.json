@@ -1,0 +1,47 @@
+{
+name: "MQTT to Influx",
+version: "0.1.1",
+slug: "xiaomi_mi_scale",
+description: "MQTT to Influx",
+url: "https://github.com/feliksj/mqtt_to_influx",
+image,:, "feliksj/mqtt_to_influx",
+arch: [
+"armhf",
+"armv7",
+"aarch64",
+"amd64",
+"i386"
+],
+startup: "before",
+boot: "auto",
+panel_admin: false,
+host_network: true,
+privileged: [
+"NET_ADMIN",
+"SYS_ADMIN"
+],
+options: {
+HCI_DEV: "hci0",
+MISCALE_MAC: "00:00:00:00:00:00",
+MQTT_PREFIX: "miscale",
+MQTT_HOST: "192.168.0.1",
+MQTT_USERNAME: "user",
+MQTT_PASSWORD: "passwd",
+MQTT_PORT: 1883,
+TIME_INTERVAL: 30,
+MQTT_DISCOVERY: true,
+MQTT_DISCOVERY_PREFIX: "homeassistant"
+},
+schema: {
+HCI_DEV: "str?",
+MISCALE_MAC: "str",
+MQTT_PREFIX: "str?",
+MQTT_HOST: "str",
+MQTT_USERNAME: "str?",
+MQTT_PASSWORD: "str?",
+MQTT_PORT: "int?",
+TIME_INTERVAL: "int?",
+MQTT_DISCOVERY: "bool?",
+MQTT_DISCOVERY_PREFIX: "str?"
+}
+}
